@@ -173,6 +173,7 @@ form button {
   font-weight: 600;
   line-height: 24px; /* 150% */
   letter-spacing: -0.32px;
+  cursor: pointer;
 }
 
 span{
@@ -189,4 +190,5 @@ text-decoration-skip-ink: auto;
 text-decoration-thickness: auto;
 text-underline-offset: auto;
 text-underline-position: from-font;
+cursor: pointer;
 }

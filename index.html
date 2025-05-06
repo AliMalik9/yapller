@@ -23,12 +23,15 @@
                     <p>Hey! Welcome to the chat app of giggles and memes!</p>
                 </div>
             </div>
-            <form action="login.php" method="POST">
+            <form id="magicLinkForm">
                 <input type="email" name="email" placeholder="Your email" required>
                 <button type="submit">Send Magic Link</button>
             </form>
             <p>You acknowledge that you read, and agree, to our <span>Terms of Service</span> and our <span>Privacy Policy</span>.</p>
         </div>
+
+          <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>    <!-- Add your custom JS -->
+    <script src="app.js"></script>
 </body>
 
 </html>

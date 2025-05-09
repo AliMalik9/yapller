@@ -73,7 +73,6 @@ function Login() {
           >
             {loading ? "Sending..." : "Send Magic Link"}
           </button>
-          \
           {message && (
             <p className="text-sm text-center text-[#adaeb3] w-full">
               {message}

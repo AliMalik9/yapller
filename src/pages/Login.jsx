@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/logo.png";
 import { supabase } from "../supabaseClient"; // ✅ import Supabase client
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleMagicLink = async (e) => {
     e.preventDefault();
@@ -16,7 +18,7 @@ function Login() {
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: `${window.location.origin}/chat`, // 👈 redirect to chat after magic link
+        emailRedirectTo: `${window.location.origin}/chat`,
       },
     });
 
@@ -30,6 +32,18 @@ function Login() {
     setLoading(false);
   };
 
+  useEffect(() => {
+    const checkSession = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+
+      if (session) {
+        navigate("/chat");
+      }
+    };
+    checkSession();
+  }, [navigate]);
   return (
     <div className="w-full h-screen bg-[#1e1e20] flex items-center justify-center overflow-hidden relative">
       <div className="absolute w-[446px] h-[446px] rounded-full opacity-60 bg-[#adaeb3] blur-[250px] right-[-232px] top-[-232px]"></div>
@@ -69,7 +83,7 @@ function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full p-3 bg-[#f5f5f6] text-[#1e1e20] rounded-2xl font-['Instrument_Sans'] text-base font-semibold leading-6 tracking-[-0.32px] hover:bg-[#cfd0d2] disabled:opacity-70 disabled:cursor-not-allowed"
+            className="w-full p-3 cursor-pointer bg-[#f5f5f6] text-[#1e1e20] rounded-2xl font-['Instrument_Sans'] text-base font-semibold leading-6 tracking-[-0.32px] hover:bg-[#cfd0d2] disabled:opacity-70 disabled:cursor-not-allowed"
           >
             {loading ? "Sending..." : "Send Magic Link"}
           </button>

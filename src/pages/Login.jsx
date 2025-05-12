@@ -18,7 +18,7 @@ function Login() {
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: `${window.location.origin}/chat`,
+        emailRedirectTo: `https://yapller.vercel.app/chat`,
       },
     });
 

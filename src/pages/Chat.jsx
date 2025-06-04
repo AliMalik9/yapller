@@ -4,6 +4,10 @@ import { supabase } from "../supabaseClient";
 import Sidebar from "../components/Sidebar";
 import Receiver from "../components/Receiver";
 import Sender from "../components/Sender";
+import MsgInput from "../components/MsgInput";
+import SenderMsg from "../components/SenderMsg";
+
+import ReceiverMsg from "../components/ReceiverMsg";
 
 function Chat() {
   const [user, setUser] = useState(null);
@@ -40,16 +44,36 @@ function Chat() {
       <div className="absolute w-[446px] h-[446px] rounded-full opacity-60 bg-[#adaeb3] blur-[250px] right-[-232px] top-[-232px]"></div>
       <div className="absolute w-[446px] h-[446px] rounded-full opacity-60 bg-[#adaeb3] blur-[250px] left-[-232px] bottom-[-232px]"></div>
       <Sidebar />
-      <div className="flex-1 h-full">
-      <div className="flex items-center gap-5 self-stretch">
-        <Receiver />
-        <Sender 
-          email={user?.email}
-          name={user?.user_metadata?.full_name || user?.email?.split('@')[0]}
-          image={user?.user_metadata?.avatar_url || user?.user_metadata?.picture} // Google OAuth provides 'picture', some other providers use 'avatar_url'
-        />
-      </div>
-      <div></div>
+      <div className="flex flex-col items-start gap-5 flex-1">
+        <div className="flex items-center gap-5 self-stretch">
+          <Receiver />
+          <Sender />
+        </div>
+<div className="flex h-full p-2 flex-col items-center gap-2 self-stretch rounded-3xl bg-[#151516]/60 overflow-hidden">
+  <div className="flex flex-col w-fit mx-auto h-full">
+        <div className="flex flex-col gap-2 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200 flex-grow px-2">
+      <ReceiverMsg />
+      <SenderMsg />
+      <ReceiverMsg />
+      <SenderMsg />
+      <ReceiverMsg />
+      <SenderMsg />
+      <ReceiverMsg />
+      <SenderMsg />
+      <ReceiverMsg />
+      <SenderMsg />
+      <ReceiverMsg />
+      <SenderMsg />
+      <SenderMsg />
+      <ReceiverMsg />
+      <SenderMsg />
+    </div>
+    <div className="w-full flex items-center justify-center gap-2 px-8 py-4">
+      <MsgInput />
+    </div>
+  </div>
+</div>
+        
       </div>
 
       {/* <p style={{ color: "#aaa" }}>Logged in as: {user?.email}</p> */}

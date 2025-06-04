@@ -4,17 +4,12 @@ const Userchat = () => {
       <img
         src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1"
         alt="Profile"
-        className="w-12 h-12 rounded-full object-cover"
+        className="w-12 h-12 rounded-lg object-cover"
       />
       <div className="flex flex-col items-start flex-1 py-3">
         <div className="flex items-baseline gap-1 self-stretch justify-between">
           <p
             className="text-[#F5F5F6] text-base font-semibold leading-5 flex-1 overflow-hidden text-ellipsis whitespace-nowrap"
-            style={{
-              display: '-webkit-box',
-              WebkitBoxOrient: 'vertical',
-              WebkitLineClamp: 1,
-            }}
           >
             Luna Nightingale
           </p>

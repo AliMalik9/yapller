@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+@theme {
+  --color-pale-50: oklch(97.04% 0.0013 287.31deg);
+  --color-pale-100: oklch(92.52% 0.0013 287.25deg);
+  --color-pale-200: oklch(85.74% 0.0029 264.67deg);
+  --color-pale-300: oklch(75.15% 0.0072 277.22deg);
+  --color-pale-400: oklch(61.81% 0.0105 279.63deg);
+  --color-pale-500: oklch(52.58% 0.0109 279.56deg);
+  --color-pale-600: oklch(47.20% 0.0081 277.07deg);
+  --color-pale-700: oklch(42.11% 0.0083 277.03deg);
+  --color-pale-800: oklch(38.43% 0.0067 286.15deg);
+  --color-pale-900: oklch(35.34% 0.0051 286.22deg);
+  --color-pale-950: oklch(23.59% 0.0038 286.18deg);
+  --color-pale-1000: oklch(19.49% 0.0027 286.23deg);
+}
